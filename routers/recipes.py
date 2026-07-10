@@ -24,9 +24,7 @@ router = APIRouter(prefix="/recipes", tags=["Recipes"])
 async def get_recipes(db: AsyncSession = Depends(get_db)):
     """Список рецептов для главного экрана (название, просмотры, время готовки)."""
     result = await db.execute(
-        select(models.Recipe).order_by(
-            models.Recipe.views.desc(), models.Recipe.cooking_time.asc()
-        )
+        select(models.Recipe).order_by(models.Recipe.views.desc(), models.Recipe.cooking_time.asc())
     )
     recipes = result.scalars().all()
     return recipes
@@ -47,9 +45,7 @@ async def get_recipes(db: AsyncSession = Depends(get_db)):
 )
 async def get_recipe_detail(recipe_id: int, db: AsyncSession = Depends(get_db)):
     """Детальная информация о рецепте с атомарным увеличением счётчика просмотров."""
-    result = await db.execute(
-        select(models.Recipe).where(models.Recipe.id == recipe_id)
-    )
+    result = await db.execute(select(models.Recipe).where(models.Recipe.id == recipe_id))
     recipe = result.scalar_one_or_none()
     if recipe is None:
         raise HTTPException(status_code=404, detail="Recipe not found")
