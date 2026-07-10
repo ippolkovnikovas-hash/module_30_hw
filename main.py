@@ -17,8 +17,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title="Cookbook API",
     description=(
-        "API кулинарной книги: список рецептов, детальная информация, "
-        "создание рецептов."
+        "API кулинарной книги: список рецептов, детальная информация, " "создание рецептов."
     ),
     version="2.0.0",
     lifespan=lifespan,
