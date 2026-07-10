@@ -94,4 +94,3 @@ async def test_get_recipes_empty_list(async_client):
     response = await async_client.get("/recipes")
     assert response.status_code == 200
     assert response.json() == []
-    
