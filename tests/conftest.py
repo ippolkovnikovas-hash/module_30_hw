@@ -3,12 +3,12 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-import pytest_asyncio
-from httpx import ASGITransport, AsyncClient
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
+import pytest_asyncio  # noqa: E402
+from httpx import ASGITransport, AsyncClient  # noqa: E402
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine  # noqa: E402
 
-from database import Base, get_db
-from main import app
+from database import Base, get_db  # noqa: E402
+from main import app  # noqa: E402
 
 TEST_DATABASE_URL = "sqlite+aiosqlite:///./test_cookbook.db"
 
