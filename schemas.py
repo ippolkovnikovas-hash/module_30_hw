@@ -12,6 +12,7 @@ class RecipeBase(BaseModel):
 
 class RecipeCreate(RecipeBase):
     """Схема для создания нового рецепта (тело POST-запроса)."""
+
     pass
 
 
